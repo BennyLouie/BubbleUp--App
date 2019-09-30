@@ -1,15 +1,13 @@
-<%= form_with(model: shop, local: true) do |form| %>
-  <% if shop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
-
-      <ul>
-        <% shop.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if flash[:errors] %>
+  <div id="error_explanation">
+    <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% flash[:errors].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
   <div class="field">
     <%= form.label :name %>

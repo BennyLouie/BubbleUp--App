@@ -1,16 +1,15 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if flash[:errors] %>
+  <div id="error_explanation">
+    <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% flash[:errors].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for @user do |form| %>
   <div class="field">
     <%= form.label :username %>
     <%= form.text_field :username %>
@@ -18,7 +17,7 @@
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.text_field :password %>
+    <%= form.password_field :password %>
   </div>
 
   <div class="field">

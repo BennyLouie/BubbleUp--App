@@ -16,17 +16,29 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to user_path(@user)
+    if @user.valid?
+      redirect_to user_path(@user)
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_path
+    end
   end
 
 
   def update
-
+    @user.update(user_params)
+    if @user.valid?
+      redirect_to user_path(@user)
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to user_path(@user)
+    end
   end
 
 
   def destroy
-
+    @user.destroy
+    render new_user_path
   end
 
   private
