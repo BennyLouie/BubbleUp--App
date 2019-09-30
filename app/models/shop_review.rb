@@ -1,0 +1,2 @@
+class ShopReview < ApplicationRecord
+end
