@@ -22,7 +22,7 @@ class ShopReviewsController < ApplicationController
 
   def create
     @shop_review = ShopReview.new(shop_review_params)
-
+    ShowReview.create(user_id:)
   end
 
 
