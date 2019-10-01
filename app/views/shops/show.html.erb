@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% flash[:shop_id] = @shop.id%>
+
 <p>
   <strong>Name:</strong>
   <%= @shop.name %>
@@ -16,4 +18,6 @@
 </p>
 
 <%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+<%= link_to 'Back', shops_path %> |
+
+<%= link_to 'Add review', new_shop_review_path %>

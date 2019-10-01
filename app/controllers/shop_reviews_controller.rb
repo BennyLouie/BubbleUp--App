@@ -9,10 +9,11 @@ class ShopReviewsController < ApplicationController
 
   def show
   end
-
-
+  
+  
   def new
-    # @shop_review = ShopReview.new
+    @shop_review = ShopReview.new
+    # flash[:shop_id] = @shop.id
   end
 
 

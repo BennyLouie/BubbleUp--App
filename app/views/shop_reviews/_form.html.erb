@@ -9,14 +9,14 @@
   </div>
 <% end %>
 
-  <div class="field">
+<%= form_for @shop_review do |form| %>
+  <!-- <div class="field">
     <%= form.label :user_id %>
     <%= form.number_field :user_id %>
-  </div>
+  </div> --> 
 
-  <div class="field">
-    <%= form.label :shop_id %>
-    <%= form.number_field :shop_id %>
+   <div class="field">
+   <%= form.hidden_field :shop_id, value: flash[:shop_id] %> 
   </div>
 
   <div class="field">
