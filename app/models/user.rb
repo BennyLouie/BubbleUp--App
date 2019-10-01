@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :shop_reviews
     has_many :shops, through: :shop_reviews
     has_many :teas, through: :recommendations
+    has_secure_password
     validates :username, presence: true
     validates :username, uniqueness: true
     validates :password, presence: true

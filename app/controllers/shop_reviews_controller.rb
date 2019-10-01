@@ -22,8 +22,7 @@ class ShopReviewsController < ApplicationController
 
 
   def create
-    @shop_review = ShopReview.new(shop_review_params)
-    ShowReview.create(user_id:)
+    shop_review = ShopReview.create(shop_review_params.merge(user_id: @current_user.id))
   end
 
 
