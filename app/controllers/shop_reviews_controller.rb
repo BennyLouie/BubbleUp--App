@@ -3,7 +3,7 @@ class ShopReviewsController < ApplicationController
 
 
   def index
-    @shop_reviews = ShopReview.all
+    @shop_reviews = @current_user.shop_reviews
   end
 
 
@@ -13,7 +13,6 @@ class ShopReviewsController < ApplicationController
   
   def new
     @shop_review = ShopReview.new
-    # flash[:shop_id] = @shop.id
   end
 
 
@@ -23,6 +22,7 @@ class ShopReviewsController < ApplicationController
 
   def create
     shop_review = ShopReview.create(shop_review_params.merge(user_id: @current_user.id))
+    redirect_to shop_path(shop_review)
   end
 
 
@@ -33,16 +33,13 @@ class ShopReviewsController < ApplicationController
 
   def destroy
     # @shop_review.destroy
-
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_shop_review
       @shop_review = ShopReview.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def shop_review_params
       params.require(:shop_review).permit(:user_id, :shop_id, :rating, :review)
     end

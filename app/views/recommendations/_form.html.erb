@@ -9,19 +9,16 @@
   </div>
 <% end %>
 
-<%= form_for @shop_review do |form| %>
+<%= form_for @recommendation do |form| %>
+
+
    <div class="field">
-   <%= form.collection_select :shop_id, Shop.all, :id, :name, prompt: true %> 
+   <%= form.collection_select :tea_id, Tea.all, :id, :tea_with_shop, prompt: true %> 
   </div>
 
   <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
-  </div>
-
-  <div class="field">
-    <%= form.label :review %>
-    <%= form.text_field :review %>
+    <%= form.label :comments %>
+    <%= form.text_field :comments %>
   </div>
 
   <div class="actions">

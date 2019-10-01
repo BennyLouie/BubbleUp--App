@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<% flash[:shop_id] = @shop.id%>
-
 <p>
   <strong>Name:</strong>
   <%= @shop.name %>
@@ -17,7 +15,14 @@
   <%= @shop.address %>
 </p>
 
+
+<ul>
+<% @shop.shop_reviews.each do |review| %>
+<li><%= "Rating: #{review.rating} - #{review.review}" %></li><br>
+<% end %>
+</ul>
+
+
+
 <%= link_to 'Edit', edit_shop_path(@shop) %> |
 <%= link_to 'Back', shops_path %> |
-
-<%= link_to 'Add review', new_shop_review_path %>

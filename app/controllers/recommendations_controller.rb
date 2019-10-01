@@ -3,7 +3,7 @@ class RecommendationsController < ApplicationController
 
 
   def index
-    # @recommendations = Recommendation.all
+    @recommendations = @current_user.recommendations
   end
 
 
@@ -12,7 +12,7 @@ class RecommendationsController < ApplicationController
 
 
   def new
-    # @recommendation = Recommendation.new
+    @recommendation = Recommendation.new
   end
 
  
@@ -21,8 +21,9 @@ class RecommendationsController < ApplicationController
 
 
   def create
-    # @recommendation = Recommendation.new(recommendation_params)
-
+    # byebug
+    recommendation = Recommendation.create(recommendation_params.merge(user_id: @current_user.id))
+    redirect_to recommendations_path
   end
 
 

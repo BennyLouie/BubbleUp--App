@@ -21,7 +21,6 @@
         <td><%= tea.img_url %></td>
         <td><%= tea.shop_id %></td>
         <td><%= link_to 'Show', tea %></td>
-        <td><%= link_to 'Edit', edit_tea_path(tea) %></td>
         <td><%= link_to 'Destroy', tea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -29,5 +28,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Tea', new_tea_path %>

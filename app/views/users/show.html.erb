@@ -9,6 +9,24 @@
   </div>
 <% end %>
 
+<% if params[:id].to_i != @current_user.id %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.full_name %>
+</p>
+
+<p>
+  <strong>Photo url:</strong>
+  <%= @user.photo_url %>
+</p>
+
+<% else%>
+  
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -29,3 +47,9 @@
 <%= button_to 'Edit', edit_user_path(@user), method: :get %> 
 <%= button_to 'Delete User', user_path(@user), method: :delete %>
 <%= link_to 'View Boba Shops', shops_path%>
+<%= button_to 'Log out', '/logout', method: :delete %> 
+
+<%= link_to 'Add a Review', new_shop_review_path %>
+<%= link_to 'Add to My Recommendations', new_recommendation_path %>
+
+<% end %> 
