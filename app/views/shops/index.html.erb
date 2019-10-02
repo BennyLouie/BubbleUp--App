@@ -2,8 +2,9 @@
 
 <h1>Shops</h1>
 
-<%= form_tag "/shops", method: :get do %>
-  <%= collection_select :shop Shop.all :id :name %>
+<%= form_for @shops do |f| %>
+  <%= f.label :location %>
+  <%= f.collection_select :location Shop.locations :location :location %>
   <%= submit_tag "Search for shop" %>
 <% end %>
 

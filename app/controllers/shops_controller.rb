@@ -11,7 +11,10 @@ class ShopsController < ApplicationController
     # else
     #   @shops = Shop.all
     # end
-    @shops = Shop.all
+    @shops = Shop.where(nil)
+    filtering_params(params).each do |key, value|
+      @shops = @shops.public_send(key, value) if value.present?
+    end
   end
 
 
@@ -36,5 +39,9 @@ class ShopsController < ApplicationController
 
     def shop_params
       params.require(:shop).permit(:name, :location, :address)
+    end
+
+    def filtering_params(params)
+      params.slice(:starts_with, :location)
     end
 end
