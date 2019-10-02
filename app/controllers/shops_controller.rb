@@ -3,15 +3,16 @@ class ShopsController < ApplicationController
 
 
   def index
-    # if params[:search_term]
-    #   @shops = Shop.where(name: params[:search_term])
-    #   if @shops == []
-    #     @shops = Shop.all
-    #   end
-    # else
-    #   @shops = Shop.all
-    # end
-    @shops = Shop.all
+    # byebug
+    if params[:search_term]
+      key = params["Search by"]
+      @shops = Shop.where("#{key} like ?", "%#{params[:search_term].titleize}%")
+      if @shops == []
+        @shops = Shop.all
+      end
+    else
+      @shops = Shop.all
+    end
   end
 
 
