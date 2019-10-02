@@ -1,43 +1,47 @@
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
+  
+  <h1>Shops</h1>
 
-<h1>Shops</h1>
-
-<%= form_tag "/shops", method: :get do %>
-  <%= select_tag "Search by", options_for_select([["location", "location"],["name", "name"]])%>
-  <%= text_field_tag :search_term %>
-  <%= submit_tag "Filter for Shop" %>
-<% end %>
-
-
+  <%= form_tag "/shops", method: :get do %>
+    <%= select_tag "Search by", options_for_select([["location", "location"],["name", "name"]])%>
+    <%= text_field_tag :search_term %>
+    <%= submit_tag "Filter for Shop" %>
+  <% end %>
 
 
-<% if @shops %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Address</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @shops.each do |shop| %>
+  <% if @shops %>
+    <table>
+      <thead>
         <tr>
-          <td><%= shop.name %></td>
-          <td><%= shop.location %></td>
-          <td><%= shop.address %></td>
-          <td><%= link_to 'Show', shop %></td>
+          <th>Average Rating</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Address</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <h2>Shop could not be found!</h2>
-  <%= link_to 'Back to Shops', shops_path %>
-<% end %>
-<br>
+      </thead>
 
-<%= link_to 'New Shop', new_shop_path %>
-<%= link_to 'Back to User', user_path(@current_user) %>
+      <tbody>
+        <% @shops.each do |shop| %>
+          <tr>
+            <td><%= shop.avg_rating %></td>
+            <td><%= shop.name %></td>
+            <td><%= shop.location %></td>
+            <td><%= shop.address %></td>
+            <td><%= link_to 'Show', shop %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h2>Shop could not be found!</h2>
+    <%= link_to 'Back to Shops', shops_path %>
+  <% end %>
+  <br>
+
+<% if logged_in? %>
+
+  <%= link_to 'New Shop', new_shop_path %>
+  <%= link_to 'Back to User', user_path(@current_user) %>
+
+<% end %>

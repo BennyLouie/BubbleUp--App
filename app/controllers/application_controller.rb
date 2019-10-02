@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :authenticated
+    helper_method :logged_in?
+
 
     private
 

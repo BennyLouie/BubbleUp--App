@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Recommendations</h1>
+<h1>My Recommendations</h1>
 
 <table>
   <thead>
@@ -12,9 +12,9 @@
   </thead>
 
   <tbody>
-    <% @recommendations.each do |recommendation| %>
+  <% @recommendations.each do |recommendation| %>
       <tr>
-        <td><%= Tea.find(recommendation.tea_id).tea_with_shop %></td>
+        <td><%= link_to Tea.find(recommendation.tea_id).tea_with_shop, tea_path(Tea.find(recommendation.tea_id)) %></td>
         <td><%= recommendation.comments %></td>
         <td><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
         <td><%= link_to 'Delete Recommendation', recommendation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

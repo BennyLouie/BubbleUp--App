@@ -12,7 +12,7 @@
 
 <p>
   <strong>Img url:</strong>
-  <%= @tea.img_url %>
+  <img height=300 src=<%= @tea.img_url %> />
 </p>
 
 <p>
@@ -26,4 +26,5 @@
 </p>
 
 
-<%= link_to 'Back to Shop', shop_path(Shop.find(@tea.shop_id)) %>
+<%= link_to 'Back to Shop', shop_path(Shop.find(@tea.shop_id)) %> |
+<%= link_to 'Back to Recommendations', recommendations_path %>

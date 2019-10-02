@@ -11,10 +11,6 @@
 </p>
 
 <% else%>
-  
-
-
-
 
 <p id="notice"><%= notice %></p>
 
@@ -36,7 +32,6 @@
 <%= button_to 'Edit', edit_user_path(@user), method: :get %> 
 <%= button_to 'Delete User', user_path(@user), method: :delete %>
 <%= link_to 'View Boba Shops', shops_path%>
-<%= button_to 'Log out', '/logout', method: :delete %> 
 
 <%= link_to 'My Reviews', shop_reviews_path %>
 <%= link_to 'My Recommendations', recommendations_path %>

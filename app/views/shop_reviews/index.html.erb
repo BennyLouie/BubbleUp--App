@@ -15,7 +15,7 @@
   <tbody>
     <% @shop_reviews.each do |shop_review| %>
       <tr>
-        <td><%= Shop.find(shop_review.shop_id).shop_with_location %></td>
+        <td><%= link_to Shop.find(shop_review.shop_id).shop_with_location, shop_review_path(Shop.find(shop_review.shop_id)) %></td>
         <td><%= shop_review.rating %></td>
         <td><%= shop_review.review %></td>
         <td><%= link_to 'Edit', edit_shop_review_path(shop_review) %></td>
