@@ -7,7 +7,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @tea.price %>
+  <%= "$#{@tea.price}" %>
 </p>
 
 <p>
@@ -17,8 +17,13 @@
 
 <p>
   <strong>Shop:</strong>
-  <%= @tea.shop_id %>
+  <%= Shop.find(@tea.shop_id).name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= Shop.find(@tea.shop_id).location %>
 </p>
 
 
-<%= link_to 'Back', teas_path %>
+<%= link_to 'Back to Shop', shop_path(Shop.find(@tea.shop_id)) %>

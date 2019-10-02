@@ -3,6 +3,14 @@ class ShopsController < ApplicationController
 
 
   def index
+    # if params[:search_term]
+    #   @shops = Shop.where(name: params[:search_term])
+    #   if @shops == []
+    #     @shops = Shop.all
+    #   end
+    # else
+    #   @shops = Shop.all
+    # end
     @shops = Shop.all
   end
 
@@ -16,18 +24,8 @@ class ShopsController < ApplicationController
     @shop = Shop.new
   end
 
-
-  def edit
-  end
-
-
   def create
     @shop = Shop.new(shop_params)
-
-  end
-
-
-  def update
 
   end
 

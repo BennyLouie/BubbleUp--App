@@ -21,29 +21,38 @@ class RecommendationsController < ApplicationController
 
 
   def create
-    # byebug
     recommendation = Recommendation.create(recommendation_params.merge(user_id: @current_user.id))
-    redirect_to recommendations_path
+    if recommendation.valid?
+      redirect_to recommendations_path
+    else
+      flash[:errors] = recommendation.errors.full_messages
+      redirect_to new_recommendation_path
+    end
   end
 
 
   def update
-
+    @recommendation.update(recommendation_params)
+    if @recommendation.valid?
+      redirect_to recommendations_path
+    else
+      flash[:errors] = @recommendation.errors.full_messages
+      redirect_to edit_recommendation_path
+    end
   end
 
 
   def destroy
-    # @recommendation.destroy
-
+    @recommendation.destroy
+    redirect_to recommendations_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_recommendation
       @recommendation = Recommendation.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def recommendation_params
       params.require(:recommendation).permit(:user_id, :tea_id, :comments)
     end

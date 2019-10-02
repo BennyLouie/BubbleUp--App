@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Shop</th>
       <th>Rating</th>
       <th>Review</th>
@@ -16,13 +15,11 @@
   <tbody>
     <% @shop_reviews.each do |shop_review| %>
       <tr>
-        <td><%= shop_review.user_id %></td>
-        <td><%= shop_review.shop_id %></td>
+        <td><%= Shop.find(shop_review.shop_id).shop_with_location %></td>
         <td><%= shop_review.rating %></td>
         <td><%= shop_review.review %></td>
-        <td><%= link_to 'Show', shop_review %></td>
         <td><%= link_to 'Edit', edit_shop_review_path(shop_review) %></td>
-        <td><%= link_to 'Destroy', shop_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete Review', shop_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +27,5 @@
 
 <br>
 
-<%= link_to 'New Shop Review', new_shop_review_path %>
+<%= link_to 'Review a Shop', new_shop_review_path %> |
+<%= link_to 'Back to User', user_path(@current_user) %>

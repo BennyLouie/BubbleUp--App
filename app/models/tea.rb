@@ -7,4 +7,8 @@ class Tea < ApplicationRecord
         "#{self.name} - #{Shop.find_by(id: self.shop_id).name}"
     end 
 
+    def shop_and_location
+        "#{self.name} - #{Shop.find_by(id: self.shop_id).name} - #{Shop.find_by(id: self.shop_id).location}"
+    end
+
 end

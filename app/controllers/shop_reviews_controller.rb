@@ -22,17 +22,29 @@ class ShopReviewsController < ApplicationController
 
   def create
     shop_review = ShopReview.create(shop_review_params.merge(user_id: @current_user.id))
-    redirect_to shop_path(shop_review)
+    if shop_review.valid?
+      redirect_to shop_path(shop_review)
+    else
+      flash[:errors] = shop_review.errors.full_messages
+      redirect_to new_shop_review_path
+    end
   end
 
 
   def update
-
+    @shop_review.update(shop_review_params)
+    if @shop_review.valid?
+      redirect_to shop_reviews_path
+    else
+      flash[:errors] = @shop_review.errors.full_messages
+      redirect_to edit_shop_review_path
+    end
   end
 
 
   def destroy
-    # @shop_review.destroy
+    @shop_review.destroy
+    redirect_to shop_reviews_path
   end
 
   private

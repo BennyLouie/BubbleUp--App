@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   resources :recommendations
   resources :shop_reviews
-  resources :shops
-  resources :teas, only: [:index, :show]
+  resources :shops, only: [:index, :show, :new, :create]
+  resources :teas, only: :show
   resources :users, except: :index
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

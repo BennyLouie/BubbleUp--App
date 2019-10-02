@@ -2,6 +2,15 @@
 
 <h1>Shops</h1>
 
+<%= form_tag "/shops", method: :get do %>
+  <%= collection_select :shop Shop.all :id :name %>
+  <%= submit_tag "Search for shop" %>
+<% end %>
+
+
+
+
+
 <table>
   <thead>
     <tr>

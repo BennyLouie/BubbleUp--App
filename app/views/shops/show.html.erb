@@ -15,14 +15,30 @@
   <%= @shop.address %>
 </p>
 
+<p>
+  <strong>Average Rating:</strong>
+  <%= @shop.avg_rating %>
+</p>
 
-<ul>
-<% @shop.shop_reviews.each do |review| %>
-<li><%= "Rating: #{review.rating} - #{review.review}" %></li><br>
-<% end %>
-</ul>
+<p>
+  <strong>Tea Menu:</strong>
+  <ul>
+  <% @shop.teas.each do |tea| %>
+    <li><%= link_to tea.name, tea_path(tea) %></li>
+  <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Reviews:</strong>
+  <ul>
+  <% @shop.shop_reviews.each do |review| %>
+  <li><%= "Rating: #{review.rating} - #{review.review}" %></li><br>
+  <% end %>
+  </ul>
+</p>
 
 
 
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %> |
+
+<%= link_to 'Back', shops_path %> 

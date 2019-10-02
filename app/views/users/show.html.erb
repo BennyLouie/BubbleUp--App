@@ -1,14 +1,3 @@
-<% if flash[:errors] %>
-  <div id="error_explanation">
-    <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this user from being updated:</h2>
-    <ul>
-      <% flash[:errors].each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <% if params[:id].to_i != @current_user.id %>
 
 <p>
@@ -49,7 +38,8 @@
 <%= link_to 'View Boba Shops', shops_path%>
 <%= button_to 'Log out', '/logout', method: :delete %> 
 
-<%= link_to 'Add a Review', new_shop_review_path %>
-<%= link_to 'Add to My Recommendations', new_recommendation_path %>
+<%= link_to 'My Reviews', shop_reviews_path %>
+<%= link_to 'My Recommendations', recommendations_path %>
+
 
 <% end %> 
