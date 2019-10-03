@@ -10,18 +10,17 @@
 <% end %>
 
 <%= form_for @recommendation do |form| %>
-
-
-   <div class="field">
+   <div class="select is-multiple">
+   <%= form.label "Tea", class: "label" %>
    <%= form.collection_select :tea_id, Tea.all, :id, :shop_and_location, prompt: true %> 
   </div>
 
   <div class="field">
-    <%= form.label :comments %>
-    <%= form.text_field :comments %>
+    <%= form.label :comments, class: "label" %>
+    <%= form.text_field :comments, class: "input" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button">
+    <%= form.submit "Submit Recommendation", class: "button is-primary", style: "background-color: #3273dc; padding: 0px; text-align: center; border: 0px; outline: 0px; border-color: transparent; color: #fff; cursor: pointer; justify-content: center; padding-bottom: calc(0.375em - 1px); padding-left: 0.75em; padding-right: 0.75em; padding-top: calc(0.375em - 1px);text-align: center; white-space: nowrap; border-width: 1px; -webkit-appearance: none; align-items: center; border: 1px solid transparent; border-radius: 4px; box-shadow: none; display: inline-flex; font-size: 1rem; height: 2.25em; position: relative; vertical-align: top; line-height: 1.5;" %>
   </div>
 <% end %>

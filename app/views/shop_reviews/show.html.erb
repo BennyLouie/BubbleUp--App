@@ -1,24 +1,22 @@
-<p id="notice"><%= notice %></p>
+<!--# <p style="font-size: 15px;">
+   <strong>User:</strong>
+   <%= User.find(@shop_review.user_id).full_name %>
+ </p> -->
 
-<p>
-  <strong>User:</strong>
-  <%= @shop_review.user_id %>
-</p>
-
-<p>
+<p style="font-size: 15px;">
   <strong>Shop:</strong>
-  <%= @shop_review.shop_id %>
+  <%= Shop.find(@shop_review.shop_id).name %>
 </p>
 
-<p>
+<p style="font-size: 15px;">
   <strong>Rating:</strong>
   <%= @shop_review.rating %>
 </p>
 
-<p>
+<p style="font-size: 15px;">
   <strong>Review:</strong>
   <%= @shop_review.review %>
 </p>
 
-<%= link_to 'Edit', edit_shop_review_path(@shop_review) %> |
-<%= link_to 'Back', shop_reviews_path %>
+<h1 style="font-size: 15px; postion: absolute; bottom:0;"><%= link_to 'Edit', edit_shop_review_path(@shop_review) %> |
+<%= link_to 'Back', shop_reviews_path %></h1>

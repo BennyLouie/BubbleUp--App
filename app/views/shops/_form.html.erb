@@ -9,22 +9,23 @@
   </div>
 <% end %>
 
+<%= form_for @shop do |form| %>
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "label"  %>
+    <%= form.text_field :name, class: "input"  %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.label :location, class: "label"  %>
+    <%= form.text_field :location, class: "input"  %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.label :address, class: "label"  %>
+    <%= form.text_field :address, class: "input"  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button">
+    <%= form.submit 'Submit Shop', class: "button is-primary" %>
   </div>
 <% end %>

@@ -11,17 +11,20 @@
 
   
   <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation", style="background-color: #0FFECE;
+    min-height: 3.25rem;
+    position: relative;
+    z-index: 30;">
       <div class="navbar-brand">
-        <strong>Bubble Up!</strong>
+        <img src="https://cdn2.iconfinder.com/data/icons/bubble-milk-tea/500/bubble-tea-drink_9-512.png" width="112" height="28">
       </div>
 
     <% if logged_in? %>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-                <strong>Welcome, <%= @current_user.full_name %></strong>
-              <a class="button is-primary", style="background-color: #fff;">
+                <h1 style="font-size: 25px"><strong>Welcome, <%= @current_user.full_name %></strong></h1>
+              <a class="button is-primary", style="background-color: #0FFECE;">
                 <strong><%= button_to "Logout", "/logout", method: :delete, style: "background-color: #3273dc; padding: 0px; text-align: center; border: 0px; outline: 0px; border-color: transparent; color: #fff; cursor: pointer; justify-content: center; padding-bottom: calc(0.375em - 1px); padding-left: 0.75em; padding-right: 0.75em; padding-top: calc(0.375em - 1px);text-align: center; white-space: nowrap; border-width: 1px; -webkit-appearance: none; align-items: center; border: 1px solid transparent; border-radius: 4px; box-shadow: none; display: inline-flex; font-size: 1rem; height: 2.25em; position: relative; vertical-align: top; line-height: 1.5;" %></strong>
               </a>
           </div>

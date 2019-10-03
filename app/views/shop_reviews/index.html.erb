@@ -1,10 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;"><strong style="color: #fff;">Shop Reviews</strong></h1>
 
-<h1>Shop Reviews</h1>
-
-<table>
+<table class="table">
   <thead>
-    <tr>
+    <tr class="is-selected">
       <th>Shop</th>
       <th>Rating</th>
       <th>Review</th>
@@ -15,11 +13,11 @@
   <tbody>
     <% @shop_reviews.each do |shop_review| %>
       <tr>
-        <td><%= link_to Shop.find(shop_review.shop_id).shop_with_location, shop_review_path(Shop.find(shop_review.shop_id)) %></td>
-        <td><%= shop_review.rating %></td>
-        <td><%= shop_review.review %></td>
-        <td><%= link_to 'Edit', edit_shop_review_path(shop_review) %></td>
-        <td><%= link_to 'Delete Review', shop_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><h1 style="font-size: 15px;"><%= link_to Shop.find(shop_review.shop_id).shop_with_location, shop_review_path(Shop.find(shop_review.shop_id)) %></h1></td>
+        <td><h1 style="font-size: 15px;"><%= shop_review.rating %></h1></td>
+        <td><h1 style="font-size: 15px;"><%= shop_review.review %></h1></td>
+        <td><h1 style="font-size: 15px;"><%= link_to 'Edit', edit_shop_review_path(shop_review) %></h1></td>
+        <td><h1 style="font-size: 15px;"><%= link_to 'Delete Review', shop_review, method: :delete, data: { confirm: 'Are you sure?' } %></h1></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +25,5 @@
 
 <br>
 
-<%= link_to 'Review a Shop', new_shop_review_path %> |
-<%= link_to 'Back to User', user_path(@current_user) %>
+<h1 style="font-size: 15px;"><%= link_to 'Review a Shop', new_shop_review_path %> |
+<%= link_to 'Back to User', user_path(@current_user) %></h1>

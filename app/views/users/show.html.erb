@@ -1,40 +1,33 @@
+<div style="text-align: center;">
 <% if params[:id].to_i != @current_user.id %>
-
-<p>
+<p class= "is-large">
   <strong>Name:</strong>
   <%= @user.full_name %>
 </p>
 
 <p>
-  <strong>Photo url:</strong>
   <%= @user.photo_url %>
 </p>
 
 <% else%>
 
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
+  <img class="is-rounded" width="275" height="275" src=<%= @user.photo_url %> />
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @user.full_name %>
+  <h1 style="font-size: 20px;"><strong>Name:</strong>
+  <%= @user.full_name %></h1>
 </p>
+<br>
 
-<p>
-  <strong>Photo url:</strong>
-  <%= @user.photo_url %>
-</p>
-
-<%= button_to 'Edit', edit_user_path(@user), method: :get %> 
-<%= button_to 'Delete User', user_path(@user), method: :delete %>
-<%= link_to 'View Boba Shops', shops_path%>
-
-<%= link_to 'My Reviews', shop_reviews_path %>
-<%= link_to 'My Recommendations', recommendations_path %>
+<%= button_to 'Edit', edit_user_path(@user), method: :get, style: "background-color: #3273dc; padding: 0px; text-align: center; border: 0px; outline: 0px; border-color: transparent; color: #fff; cursor: pointer; justify-content: center; padding-bottom: calc(0.375em - 1px); padding-left: 0.75em; padding-right: 0.75em; padding-top: calc(0.375em - 1px);text-align: center; white-space: nowrap; border-width: 1px; -webkit-appearance: none; align-items: center; border: 1px solid transparent; border-radius: 4px; box-shadow: none; display: inline-flex; font-size: 1rem; height: 2.25em; position: relative; vertical-align: top; line-height: 1.5;" %> 
+<%= button_to 'Delete User', user_path(@user), method: :delete, style: "background-color: #3273dc; padding: 0px; text-align: center; border: 0px; outline: 0px; border-color: transparent; color: #fff; cursor: pointer; justify-content: center; padding-bottom: calc(0.375em - 1px); padding-left: 0.75em; padding-right: 0.75em; padding-top: calc(0.375em - 1px);text-align: center; white-space: nowrap; border-width: 1px; -webkit-appearance: none; align-items: center; border: 1px solid transparent; border-radius: 4px; box-shadow: none; display: inline-flex; font-size: 1rem; height: 2.25em; position: relative; vertical-align: top; line-height: 1.5;" %>
+<br>
+<h1 style="font-size: 15px;"><%= link_to 'View Boba Shops', shops_path%> |
+<%= link_to 'My Reviews', shop_reviews_path %> |
+<%= link_to 'My Recommendations', recommendations_path %></h1>
 
 
 <% end %> 
+</div>

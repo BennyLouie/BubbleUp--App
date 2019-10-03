@@ -1,44 +1,58 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @shop.name %>
+<div class="content" style="text-align: center;">
+<p style="font-size: 15px;">
+  <strong>Name:</strong><%= @shop.name %>
 </p>
 
-<p>
+<p style="font-size: 15px;">
   <strong>Location:</strong>
   <%= @shop.location %>
 </p>
 
-<p>
+<p style="font-size: 15px;">
   <strong>Address:</strong>
   <%= @shop.address %>
 </p>
 
-<p>
+<p style="font-size: 15px;">
   <strong>Average Rating:</strong>
   <%= @shop.avg_rating %>
 </p>
 
-<p>
-  <strong>Tea Menu:</strong>
-  <ul>
+<div class="container" style="postion:relative;">
+<table class="table" style="width: 300px; float: left;">
+  <thead>
+    <tr class="is-selected">
+      <th>Tea Menu:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
   <% @shop.teas.each do |tea| %>
-    <li><%= link_to tea.name, tea_path(tea) %></li>
+    <tr>
+      <td><p style="font-size: 15px;"><%= link_to tea.name, tea_path(tea) %></p></td>
+    </tr>
   <% end %>
-  </ul>
-</p>
+  </tbody>
+</table>
 
-<p>
-  <strong>Reviews:</strong>
-  <ul>
+<table class="table" style="width: 700px; float: right;">
+  <thead>
+    <tr class="is-selected">
+      <th>Reviews:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
   <% @shop.shop_reviews.each do |review| %>
-  <li><%= "Rating: #{review.rating} - #{review.review}" %></li><br>
+    <tr>
+      <td><p style="font-size: 15px;"><strong>Rating: </strong><%= "#{review.rating} - #{review.review}" %></p></td>
+    </tr>
   <% end %>
-  </ul>
-</p>
+  </tbody>
+</table>
+<h1 style="font-size: 15px; postion: absolute; bottom:0;"><%= link_to 'Back', shops_path %></h1>
+</div>
 
-
-
-
-<%= link_to 'Back', shops_path %> 
+</div>

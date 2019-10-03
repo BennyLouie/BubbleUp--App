@@ -1,18 +1,18 @@
-  <p id="notice"><%= notice %></p>
-  
-  <h1>Shops</h1>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;"><strong style="color: #fff;">Shops</strong></h1>
 
   <%= form_tag "/shops", method: :get do %>
-    <%= select_tag "Search by", options_for_select([["location", "location"],["name", "name"]])%>
-    <%= text_field_tag :search_term %>
-    <%= submit_tag "Filter for Shop" %>
+    <div class="field">
+      <%= select_tag "Search by", options_for_select([["location", "location"],["name", "name"]]), class: "label"%>
+      <%= text_field_tag :search_term, nil, class: "input" %>
+      <%= submit_tag "Filter for Shop", class: "button is-primary" %>
+    </div>
   <% end %>
 
 
   <% if @shops %>
-    <table>
+    <table class="table">
       <thead>
-        <tr>
+        <tr class="is-selected">
           <th>Average Rating</th>
           <th>Name</th>
           <th>Location</th>
@@ -24,11 +24,11 @@
       <tbody>
         <% @shops.each do |shop| %>
           <tr>
-            <td><%= shop.avg_rating %></td>
-            <td><%= shop.name %></td>
-            <td><%= shop.location %></td>
-            <td><%= shop.address %></td>
-            <td><%= link_to 'Show', shop %></td>
+            <td><h1 style="font-size: 15px;"><%= shop.avg_rating %></h1></td>
+            <td><h1 style="font-size: 15px;"><%= shop.name %></h1></td>
+            <td><h1 style="font-size: 15px;"><%= shop.location %></h1></td>
+            <td><h1 style="font-size: 15px;"><%= shop.address %></h1></td>
+            <td><h1 style="font-size: 15px;"><%= link_to 'Show', shop %></h1></td>
           </tr>
         <% end %>
       </tbody>
@@ -41,7 +41,7 @@
 
 <% if logged_in? %>
 
-  <%= link_to 'New Shop', new_shop_path %>
-  <%= link_to 'Back to User', user_path(@current_user) %>
+<h1 style="font-size: 15px;"><%= link_to 'New Shop', new_shop_path %> |
+<%= link_to 'Back to User', user_path(@current_user) %></h1>
 
 <% end %>

@@ -1,3 +1,4 @@
+<h1 class= "label" style="background-color: #011F2E; color: #fff;"><strong style="color: #fff;">Login</h1>
 <% if flash[:errors] %>
 <ul>
     <% flash[:errors].each do |message| %>
@@ -6,15 +7,13 @@
 </ul>
 <% end %>
 
-<%= form_tag '/login' do %>
+<%= form_tag '/login', class: "field" do %>
 
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
+    <%= label_tag :username, nil, class: "label" %>
+    <%= text_field_tag :username, nil, class: "input" %>
 
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= label_tag :password, nil, class: "label" %>
+    <%= password_field_tag :password, nil, class: "input" %>
 
-    <%= submit_tag 'Login'%>
+    <%= submit_tag 'Login', class: "button is-primary"%>
 <% end %>
-
-<%= link_to 'Sign Up', new_user_path %> 

@@ -11,31 +11,31 @@
 
 <%= form_for @user do |form| %>
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= form.label :username, class: "label" %>
+    <%= form.text_field :username, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.label :password, class: "label" %>
+    <%= form.password_field :password, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.label :first_name, class: "label" %>
+    <%= form.text_field :first_name, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.label :last_name, class: "label" %>
+    <%= form.text_field :last_name, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :photo_url %>
-    <%= form.text_field :photo_url %>
+    <%= form.label :photo_url, class: "label" %>
+    <%= form.text_field :photo_url, class: "input" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button">
+    <%= form.submit 'Submit User', class: "button is-primary" %>
   </div>
 <% end %>

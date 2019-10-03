@@ -10,21 +10,22 @@
 <% end %>
 
 <%= form_for @shop_review do |form| %>
-   <div class="field">
+   <div class="select is-multiple">
+   <%= form.label "Shop", class: "label" %>
    <%= form.collection_select :shop_id, Shop.all, :id, :shop_with_location, prompt: true %> 
   </div>
 
   <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <%= form.label :rating, class: "label" %>
+    <%= form.number_field :rating, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :review %>
-    <%= form.text_field :review %>
+    <%= form.label :review, class: "label" %>
+    <%= form.text_field :review, class: "input" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button">
+    <%= form.submit 'Submit Review', class: "button is-primary" %>
   </div>
 <% end %>
