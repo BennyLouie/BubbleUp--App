@@ -11,24 +11,37 @@
 
   
   <body>
-    <header class="menu">
-      <div class="container">
-        <span class="logo">
-        Bubble Up!
-        </span>
-        <nav class="right">
-          <span class="item">
-            <% if logged_in? %>
-              Welcome, <%= @current_user.full_name %>
-              <%= button_to "Logout", "/logout", method: :delete %>
-            <% else %>
-              <%= link_to "Sign Up", new_user_path, class: "item" %>
-              <%= link_to "Login", login_path, class: "item" %>
-            <% end %>
-          </span>
-        </nav>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <strong>Bubble Up!</strong>
       </div>
-  </header>
+
+    <% if logged_in? %>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+                <strong>Welcome, <%= @current_user.full_name %></strong>
+              <a class="button is-primary", style="background-color: #fff;">
+                <strong><%= button_to "Logout", "/logout", method: :delete, style: "background-color: #3273dc; padding: 0px; text-align: center; border: 0px; outline: 0px; border-color: transparent; color: #fff; cursor: pointer; justify-content: center; padding-bottom: calc(0.375em - 1px); padding-left: 0.75em; padding-right: 0.75em; padding-top: calc(0.375em - 1px);text-align: center; white-space: nowrap; border-width: 1px; -webkit-appearance: none; align-items: center; border: 1px solid transparent; border-radius: 4px; box-shadow: none; display: inline-flex; font-size: 1rem; height: 2.25em; position: relative; vertical-align: top; line-height: 1.5;" %></strong>
+              </a>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+              <a class="button is-link" href=<%= new_user_path %>>
+                <strong>Sign Up</strong>
+              </a>
+              <a class="button is-light" href=<%= login_path %>>
+                Login
+              </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </nav>
     <%= yield %>
 
   </body>
