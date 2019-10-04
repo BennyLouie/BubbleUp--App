@@ -1,26 +1,30 @@
 <% if flash[:errors] %>
-  <div id="error_explanation">
-    <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this user from being saved:</h2>
-    <ul>
+  <div id="error_explanation" style="font-weight: bold;">
+    <h2><%= pluralize(flash[:errors].count, "error") %>
+      prohibited this recommendation from being saved:
+    </h2>
+      
       <% flash[:errors].each do |message| %>
-        <li><%= message %></li>
+        <p style="color: black;">
+          <%= message %>
+        </p>
       <% end %>
-    </ul>
+
   </div>
 <% end %>
 
 <%= form_for @recommendation do |form| %>
    <div class="select is-multiple">
-   <%= form.label "Tea", class: "label" %>
-   <%= form.collection_select :tea_id, Tea.all, :id, :shop_and_location, prompt: true %> 
+   <%= form.label "Tea", class: "label"%>
+   <%= form.collection_select :tea_id, Tea.all, :id, :shop_and_location, prompt: true, class: "input"%> 
   </div>
 
   <div class="field">
-    <%= form.label :comments, class: "label" %>
-    <%= form.text_field :comments, class: "input" %>
+    <%= form.label :comments, class: "label"%>
+    <%= form.text_field :comments, class: "input"%>
   </div>
 
   <div class="button">
-    <%= form.submit "Submit Recommendation", class: "button is-primary", style: "background-color: #3273dc; padding: 0px; text-align: center; border: 0px; outline: 0px; border-color: transparent; color: #fff; cursor: pointer; justify-content: center; padding-bottom: calc(0.375em - 1px); padding-left: 0.75em; padding-right: 0.75em; padding-top: calc(0.375em - 1px);text-align: center; white-space: nowrap; border-width: 1px; -webkit-appearance: none; align-items: center; border: 1px solid transparent; border-radius: 4px; box-shadow: none; display: inline-flex; font-size: 1rem; height: 2.25em; position: relative; vertical-align: top; line-height: 1.5;" %>
+    <%= form.submit "Submit Recommendation", class: "button-is-primary"%>
   </div>
 <% end %>

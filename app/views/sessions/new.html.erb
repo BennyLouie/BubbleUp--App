@@ -1,19 +1,30 @@
-<h1 class= "label" style="background-color: #011F2E; color: #fff;"><strong style="color: #fff;">Login</h1>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong style="color: #fff;">
+    Login
+  </strong>
+</h1>
+
 <% if flash[:errors] %>
-<ul>
-    <% flash[:errors].each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-</ul>
+  <div id="error_explanation" style="font-weight: bold;">
+    <h2><%= pluralize(flash[:errors].count, "error") %>
+      prohibited login:
+    </h2>
+      
+      <% flash[:errors].each do |message| %>
+        <p style="color: black;">
+          <%= message %>
+        </p>
+      <% end %>
+
+  </div>
 <% end %>
 
 <%= form_tag '/login', class: "field" do %>
-
     <%= label_tag :username, nil, class: "label" %>
     <%= text_field_tag :username, nil, class: "input" %>
 
     <%= label_tag :password, nil, class: "label" %>
     <%= password_field_tag :password, nil, class: "input" %>
 
-    <%= submit_tag 'Login', class: "button is-primary"%>
+    <%= submit_tag 'Login', class: "button-is-primary"%>
 <% end %>

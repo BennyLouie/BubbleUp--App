@@ -1,6 +1,14 @@
-<h1 class= "label" style="background-color: #011F2E; color: #fff;"><strong style="color: #fff;">Editing User</h1>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+    <strong style="color: #fff;">
+        Editing User
+    </strong>
+</h1>
 
 <%= render 'form', user: @user %>
 
-<h1 style="font-size: 15px;"><%= link_to 'Show', @user %> |
-<%= link_to 'Back', user_path(@user) %></h1>
+<br>
+
+<h1>
+    <%= link_to 'Show', @user %> |
+    <%= link_to 'Back', user_path(@user) %>
+</h1>

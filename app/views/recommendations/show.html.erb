@@ -1,19 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong style="color: #fff;">
+    Current Recommendation
+  </strong>
+</h1>
 
 <p>
-  <strong>User:</strong>
-  <%= @recommendation.user_id %>
+  <strong>
+    User: <%= @recommendation.user_id %>
+  </strong>
 </p>
 
 <p>
-  <strong>Tea:</strong>
-  <%= @recommendation.tea_id %>
+  <strong>
+    Tea: <%= @recommendation.tea_id %>
+  </strong>
 </p>
 
 <p>
-  <strong>Comments:</strong>
-  <%= @recommendation.comments %>
+  <strong>
+    Comments: <%= @recommendation.comments %>
+  </strong>
 </p>
 
-<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
-<%= link_to 'Back', recommendations_path %>
+<h1>
+  <%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+  <%= link_to 'Back', recommendations_path %>
+</h1>

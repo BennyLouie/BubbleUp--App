@@ -1,58 +1,92 @@
-<div class="content" style="text-align: center;">
-<p style="font-size: 15px;">
-  <strong>Name:</strong><%= @shop.name %>
-</p>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong>Current Shop</strong>
+</h1>
 
-<p style="font-size: 15px;">
-  <strong>Location:</strong>
-  <%= @shop.location %>
-</p>
+  <div style="display: flex; justify-content: center">
+    <div class="has-text-justified" style="display: block; margin-left: auto; margin-right: auto; ">
+      <p>
+        <strong>
+          Name: <%= @shop.name %>
+        </strong>
+      </p>
+      <p>
+        <strong>
+          Location: <%= @shop.location %>
+        </strong>
+      </p>
+      <p>
+        <strong>
+          Address: <%= @shop.address %>
+        </strong>
+      </p>
+      <p>
+        <strong>
+          Average Rating: <%= @shop.avg_rating %>
+        </strong>
+      </p>
+    </div>
+  </div>
 
-<p style="font-size: 15px;">
-  <strong>Address:</strong>
-  <%= @shop.address %>
-</p>
+<br>
 
-<p style="font-size: 15px;">
-  <strong>Average Rating:</strong>
-  <%= @shop.avg_rating %>
-</p>
+<br>
 
-<div class="container" style="postion:relative;">
-<table class="table" style="width: 300px; float: left;">
-  <thead>
-    <tr class="is-selected">
-      <th>Tea Menu:</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="container" style="display: flex; justify-content: space-around">
+    <table class="table" style="width: 300px;">
+      <thead>
+        <tr class="is-selected">
+          <th class= "row">
+            Tea Menu:
+          </th>
+        </tr>
+      </thead>
 
-  <tbody>
-  <% @shop.teas.each do |tea| %>
-    <tr>
-      <td><p style="font-size: 15px;"><%= link_to tea.name, tea_path(tea) %></p></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      <tbody>
+      <% @shop.teas.each do |tea| %>
+        <tr>
+          <td class="row-content">
+            <p>
+              <%= link_to tea.name, tea_path(tea) %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-<table class="table" style="width: 700px; float: right;">
-  <thead>
-    <tr class="is-selected">
-      <th>Reviews:</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table class="table" style="width: 700px;">
+      <thead>
+        <tr class="is-selected">
+          <th class="row">
+            Reviews:
+          </th>
+        </tr>
+      </thead>
 
-  <tbody>
-  <% @shop.shop_reviews.each do |review| %>
-    <tr>
-      <td><p style="font-size: 15px;"><strong>Rating: </strong><%= "#{review.rating} - #{review.review}" %></p></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<h1 style="font-size: 15px; postion: absolute; bottom:0;"><%= link_to 'Back', shops_path %></h1>
-</div>
+      <tbody>
 
+      <% @shop.shop_reviews.each do |review| %>
+
+        <tr>
+          <td class="row-content">
+            <p>
+              Rating: <%= "#{review.rating} - #{review.review}" %>
+            </p>
+          </td>
+        </tr>
+
+      <% end %>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+<br>
+
+<div class="container" style="display: flex; justify-content: center">
+  <h1>
+    <%= link_to 'Back', shops_path %>
+  </h1>
 </div>

@@ -1,5 +1,15 @@
-<h1 class= "label" style="background-color: #011F2E; color: #fff;"><strong style="color: #fff;">New Recommendation</h1>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong style="color: #fff;">
+    New Recommendation
+  </strong>
+</h1>
+
 <br>
+
 <%= render 'form', recommendation: @recommendation %>
 
-<h1 style="font-size: 15px;"><%= link_to 'Back to Recommendations', recommendations_path %></h1>
+<br>
+
+<h1>
+  <%= link_to 'Back to Recommendations', recommendations_path %>
+</h1>

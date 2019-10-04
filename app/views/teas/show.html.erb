@@ -1,29 +1,60 @@
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong style="color: #fff;">
+    Current Tea
+  </strong>
+</h1>
 
 <p style="text-align:center;">
   <img class="is-rounded" width="300" height="300" src=<%= @tea.img_url %> />
 </p>
 
 <br>
-<div style="text-align: center;">
-<p>
-  <h1 style="font-size: 20px;"><strong>Name:</strong><%= @tea.name %></h1>
-</p>
-<br>
-<p>
-  <h1 style="font-size: 20px;"><strong>Price:</strong><%= "$#{@tea.price}" %></h1>
-</p>
-<br>
-<p>
-  <h1 style="font-size: 20px;"><strong>Shop:</strong><%= Shop.find(@tea.shop_id).name %></h1>
-</p>
-<br>
-<p>
-  <h1 style="font-size: 20px;"><strong>Location:</strong><%= Shop.find(@tea.shop_id).location %></h1>
-</p>
 
-<br>
-<p>
-  <h1 style="font-size: 15px;"><%= link_to 'Back to Shop', shop_path(Shop.find(@tea.shop_id)) %> |
-  <%= link_to 'Back to Recommendations', recommendations_path %></h1>
-</p>
+<div style="text-align: center;">
+  <p>
+    <h1 style="font-size: 20px;">
+      <strong>
+        Name: <%= @tea.name %>
+      </strong>
+    </h1>
+  </p>
+
+  <br>
+
+  <p>
+    <h1 style="font-size: 20px;">
+      <strong>
+        Price: <%= "$#{@tea.price}" %>
+      </strong>
+    </h1>
+  </p>
+
+  <br>
+
+  <p>
+    <h1 style="font-size: 20px;">
+      <strong>
+        Shop: <%= Shop.find(@tea.shop_id).name %>
+      </strong>
+    </h1>
+  </p>
+
+  <br>
+
+  <p>
+    <h1 style="font-size: 20px;">
+      <strong>
+        Location: <%= Shop.find(@tea.shop_id).location %>
+      </strong>
+    </h1>
+  </p>
+
+  <br>
+
+  <p>
+    <h1>
+      <%= link_to 'Back to Shop', shop_path(Shop.find(@tea.shop_id)) %> |
+      <%= link_to 'Back to Recommendations', recommendations_path %>
+    </h1>
+  </p>
 </div>
