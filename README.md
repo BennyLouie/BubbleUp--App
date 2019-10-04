@@ -11,6 +11,11 @@ There is a filter feature on the index page of the boba shops which allows users
 
 This app was developed as Flatiron School's mod 2 Project.
 
+
+***CURRENTLY THIS MASTER BRANCH IS INCOMPLETE! PLEASE REFER TO ONE OF THE*** ***FOLLOWING BRANCHES FOR THE MOST UPDATED CODE:***
+    ben2
+    yuki
+****************************************************************************
 ---
 
 HOW TO GET STARTED
