@@ -1,24 +1,46 @@
-# README
+BUBBLE UP! 
+========================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple web application to that allows users to review bubble tea shops and add bubble teas to their list of recommendations. 
 
-Things you may want to cover:
+The app is built using Rails [6.0], HTML, CSS (through Bulma as well as a custom stylesheet), and a Postgres SQL database.
 
-* Ruby version
+Pre-seeded with Boba Tea shop data (which we found through Google) and bubble teas (based off my memory of visiting boba shops).
 
-* System dependencies
+There is a filter feature on the index page of the boba shops which allows users to select either 'name' or 'location' to filter by and then type in the name of either the shop or its location.
 
-* Configuration
+This app was developed as Flatiron School's mod 2 Project.
 
-* Database creation
+---
 
-* Database initialization
+HOW TO GET STARTED
+========================
 
-* How to run the test suite
+1) Clone this repository onto your computer.
 
-* Services (job queues, cache servers, search engines, etc.)
+2) Using your terminal, CD into the directory holding this repository.
 
-* Deployment instructions
+3) `bundle install` the gems required to load this app.
 
-* ...
+4) `rails db:migrate` the necessary tables.
+
+5) `rails db:seed` the pre-written data.
+
+6) Run `rails s` to load the app.
+
+7) Open up your browser to localhost:3000/login.
+
+8) You'll need to create a new account to start using the app but if you want to see an already usable account, use the following:
+    Username: benben
+    Password: benben
+
+9) Follow along the app and the rest is pretty self-explanatory.
+
+CREATORS
+========================
+
+Benny: https://github.com/BennyLouie
+
+Yuki: https://github.com/yukiyao119
+
+========================
