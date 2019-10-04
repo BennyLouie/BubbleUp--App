@@ -5,7 +5,7 @@
 
 <%= form_tag "/shops", method: :get do %>
   <div class="field">
-    <%= select_tag "Search by", options_for_select([["location", "location"],["name", "name"]]), class: "label"%>
+    <%= select_tag "Search by", options_for_select([["location", "location"],["name", "name"]]), class: "label", style:"color:black;"%>
     <%= text_field_tag :search_term, nil, class: "input" %>
     <%= submit_tag "Filter for Shop", class: "button-is-primary"%>
   </div>
