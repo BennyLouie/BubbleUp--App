@@ -3,7 +3,7 @@ BUBBLE UP!
 
 A simple web application to that allows users to review bubble tea shops and add bubble teas to their list of recommendations. 
 
-The app is built using Rails [6.0], HTML, CSS (through Bulma as well as a custom stylesheet), and a Postgres SQL database.
+The app is built using Rails [6.0], HTML, CSS (VERY rough.), and a Postgres SQL database.
 
 Pre-seeded with Boba Tea shop data (which we found through Google) and bubble teas (based off my memory of visiting boba shops).
 
