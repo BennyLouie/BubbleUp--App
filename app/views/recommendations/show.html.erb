@@ -1,13 +1,18 @@
+<div class="ui container">
+<center>
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>User:</strong>
-  <%= @recommendation.user_id %>
+  <%= User.find_by(id: @recommendation.user_id).full_name %>
 </p>
 
 <p>
   <strong>Tea:</strong>
-  <%= @recommendation.tea_id %>
+  <%= Tea.find_by(id: @recommendation.tea_id).shop_and_location %>
 </p>
 
 <p>
@@ -17,3 +22,7 @@
 
 <%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
 <%= link_to 'Back', recommendations_path %>
+
+
+</center>
+</div>

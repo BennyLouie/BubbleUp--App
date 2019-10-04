@@ -3,11 +3,16 @@
 </style>
 
 <div class="ui container">
+<center>
+<!-- This means if you are loggedin to see this person's profile, -->
+<% if params[:id].to_i != @current_user.id %>
 
-  <% if params[:id].to_i != @current_user.id %>
+      <div class="image">
+        <img class="ui medium circular image" src="https://images.unsplash.com/photo-1529335764857-3f1164d1cb24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80">
+      </div>
 
-      <h1>Name:</h1>
-      <%= @user.full_name %>
+
+      <h3><%= @user.full_name%></h3>
 
     <p>
       <strong>Photo url:</strong>
@@ -16,12 +21,6 @@
 
     <% else%>
 
-    <p id="notice"><%= notice %></p>
-
-    <p>
-      <strong>Username:</strong>
-      <%= @user.username %>
-    </p>
 
     <p>
       <strong>Name:</strong>
@@ -33,13 +32,15 @@
       <%= @user.photo_url %>
     </p>
 
-    <%= button_to 'Edit', edit_user_path(@user), method: :get %> 
-    <%= button_to 'Delete User', user_path(@user), method: :delete %>
 
-    <div class="ui inverted segment">
-      <%= link_to 'View Boba Shops', shops_path, class: "ui inverted violet button"%>
-      <%= link_to 'My Reviews', shop_reviews_path, class: 'ui inverted violet button' %>
-      <%= link_to 'My Recommendations', recommendations_path, class: 'ui inverted violet button' %>
+
+
+<br>
+
+    <div class="ui container">
+      <%= link_to 'View Boba Shops', shops_path, class: "ui violet button"%>
+      <%= link_to 'My Reviews', shop_reviews_path, class: 'ui violet button' %>
+      <%= link_to 'My Recommendations', recommendations_path, class: 'ui violet button' %>
     </div>
 
     <br><br><br>
@@ -57,6 +58,11 @@
       <i class="google plus icon"></i>
     </button>
 
-  <% end %> 
+<br>
 
+    <%= button_to 'Edit', edit_user_path(@user), method: :get %> 
+    <%= button_to 'Delete User', user_path(@user), method: :delete %>
+
+<% end %>
+</center>
 </div>

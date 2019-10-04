@@ -1,5 +1,8 @@
+<div class="ui container">
+<center>
+
 <% if flash[:errors] %>
-  <div id="error_explanation">
+  <div >
     <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this review from being saved:</h2>
     <ul>
       <% flash[:errors].each do |message| %>
@@ -14,17 +17,26 @@
    <%= form.collection_select :shop_id, Shop.all, :id, :shop_with_location, prompt: true %> 
   </div>
 
+<br>
+
   <div class="field">
     <%= form.label :rating %>
     <%= form.number_field :rating %>
   </div>
+
+<br>
 
   <div class="field">
     <%= form.label :review %>
     <%= form.text_field :review %>
   </div>
 
+<br>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+</center>
+</div>

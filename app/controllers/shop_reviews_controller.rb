@@ -21,6 +21,7 @@ class ShopReviewsController < ApplicationController
 
 
   def create
+    byebug
     shop_review = ShopReview.create(shop_review_params.merge(user_id: @current_user.id))
     if shop_review.valid?
       redirect_to shop_path(shop_review)
@@ -43,13 +44,15 @@ class ShopReviewsController < ApplicationController
 
 
   def destroy
+    # byebug
     @shop_review.destroy
     redirect_to shop_reviews_path
   end
 
   private
+  # byebug
     def set_shop_review
-      @shop_review = ShopReview.find(params[:id])
+      @shop_review = ShopReview.find_by(id: params[:id])
     end
 
     def shop_review_params

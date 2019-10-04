@@ -1,3 +1,6 @@
+<div class="ui container">
+<center>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Shop Reviews</h1>
@@ -19,7 +22,7 @@
         <td><%= shop_review.rating %></td>
         <td><%= shop_review.review %></td>
         <td><%= link_to 'Edit', edit_shop_review_path(shop_review) %></td>
-        <td><%= link_to 'Delete Review', shop_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Delete Review', shop_review_path(Shop.find(shop_review.shop_id)), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,3 +32,7 @@
 
 <%= link_to 'Review a Shop', new_shop_review_path %> |
 <%= link_to 'Back to User', user_path(@current_user) %>
+
+
+</center>
+</div>

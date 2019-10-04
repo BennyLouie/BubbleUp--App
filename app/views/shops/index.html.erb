@@ -1,6 +1,8 @@
   <p id="notice"><%= notice %></p>
   
   <h1>Shops</h1>
+<center>
+
 
   <%= form_tag "/shops", method: :get do %>
     <%= select_tag "Search by", options_for_select([["location", "location"],["name", "name"]])%>
@@ -45,3 +47,5 @@
   <%= link_to 'Back to User', user_path(@current_user) %>
 
 <% end %>
+
+</center>

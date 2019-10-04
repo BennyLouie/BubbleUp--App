@@ -9,31 +9,61 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
   <body>
-    <div class="ui container">
-    
-          <nav class="ui menu">
-              <h1 class="ui mini header item">Bubble Up!</h1>   
-              <% if logged_in? %>
-              <span class="ui right item">
-                Welcome, <%= @current_user.full_name %>
-                <%= button_to "Logout", "/logout", method: :delete%>
-              </span>
-              <% else %>
-                <span class="ui right item"><%= link_to "Sign Up", new_user_path%></span>
-                <span class="ui item"><%= link_to "Login", login_path %></span>
-              <% end %>
-          </nav>
+
+      <nav class="ui menu">
+
+        <h1 class="ui mini header item">Bubble Up!</h1>  
+
+              <a id="toggle" class="item">
+              <i id="toggle" class="ui sidebar icon"></i>
+                Menu
+              </a>
+
+
+          <% if logged_in? %>
+          <span class="ui right item">
+              Welcome, <%= @current_user.full_name %>
+              <%= button_to "Logout", "/logout", method: :delete%>
+          </span>
+          <% else %>
+              <span class="ui right item"><%= link_to "Sign Up", new_user_path%></span>
+              <span class="ui item"><%= link_to "Login", login_path %></span>
+          <% end %>
+        
+      </nav>
+
+      <div class="ui sidebar inverted vertical menu">
+        <a href="/shops", class="ui item">Monday</a>
+        <a href="/shops", class="ui item">Tuesday</a>
+        <a href="/shops", class="ui item">Wednesday</a>
+        <a href="/shops", class="ui item">Thursday</a>
+        <%= link_to "Shops", shops_path, class: "ui item"%>
+        <%= link_to "Shops", shops_path, class: "ui item"%>
+        <%= link_to "Shops", shops_path, class: "ui item"%>
+      </div>
+
+      <div class="pusher" style="z-index: -51;">
+        <div class="ui container">
+            this is a pusher!!
         </div>
-  </div>
-  
+      </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+      <script>
+        $('#toggle').click(function(){
+          $('.ui.sidebar').sidebar('toggle');
+        });
+      </script>
+
+
+
+
   <%= yield %>
-
   </body>
 </html>
