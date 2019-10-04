@@ -1,40 +1,62 @@
-<% if params[:id].to_i != @current_user.id %>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lobster|Turret+Road:700&display=swap');
+</style>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.full_name %>
-</p>
+<div class="ui container">
 
-<p>
-  <strong>Photo url:</strong>
-  <%= @user.photo_url %>
-</p>
+  <% if params[:id].to_i != @current_user.id %>
 
-<% else%>
+      <h1>Name:</h1>
+      <%= @user.full_name %>
 
-<p id="notice"><%= notice %></p>
+    <p>
+      <strong>Photo url:</strong>
+      <%= @user.photo_url %>
+    </p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+    <% else%>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.full_name %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Photo url:</strong>
-  <%= @user.photo_url %>
-</p>
+    <p>
+      <strong>Username:</strong>
+      <%= @user.username %>
+    </p>
 
-<%= button_to 'Edit', edit_user_path(@user), method: :get %> 
-<%= button_to 'Delete User', user_path(@user), method: :delete %>
-<%= link_to 'View Boba Shops', shops_path%>
+    <p>
+      <strong>Name:</strong>
+      <%= @user.full_name %>
+    </p>
 
-<%= link_to 'My Reviews', shop_reviews_path %>
-<%= link_to 'My Recommendations', recommendations_path %>
+    <p>
+      <strong>Photo url:</strong>
+      <%= @user.photo_url %>
+    </p>
 
+    <%= button_to 'Edit', edit_user_path(@user), method: :get %> 
+    <%= button_to 'Delete User', user_path(@user), method: :delete %>
 
-<% end %> 
+    <div class="ui inverted segment">
+      <%= link_to 'View Boba Shops', shops_path, class: "ui inverted violet button"%>
+      <%= link_to 'My Reviews', shop_reviews_path, class: 'ui inverted violet button' %>
+      <%= link_to 'My Recommendations', recommendations_path, class: 'ui inverted violet button' %>
+    </div>
+
+    <br><br><br>
+
+    <button class="ui circular facebook icon button">
+      <i class="facebook icon"></i>
+    </button>
+    <button class="ui circular twitter icon button">
+      <i class="twitter icon"></i>
+    </button>
+    <button class="ui circular linkedin icon button">
+      <i class="linkedin icon"></i>
+    </button>
+    <button class="ui circular google plus icon button">
+      <i class="google plus icon"></i>
+    </button>
+
+  <% end %> 
+
+</div>

@@ -1,20 +1,51 @@
-<% if flash[:errors] %>
-<ul>
-    <% flash[:errors].each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-</ul>
-<% end %>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Turret+Road&display=swap');
+</style>
 
-<%= form_tag '/login' do %>
+<div class="ui container">
 
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
+  <% if flash[:errors] %>
+    <div class="ui error message">
+      <i class="ui close icon"></i>
+      <ul class="ui list">
+        <% flash[:errors].each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+  <div class="ui container">
+    <br><br><br><br>
 
-    <%= submit_tag 'Login'%>
-<% end %>
+    <div class="ui one column stackable center aligned page equal height grid">
 
-<%= link_to 'Sign Up', new_user_path %> 
+        <div class="ui six wide form">
+          <%= form_tag '/login' do %>
+
+            <div class="field">
+              <%= label_tag :username %>
+              <div class="ui left icon input">
+              <span placeholder="Username"><%= text_field_tag :username%></span>
+              <i class="user icon"></i>
+            </div>
+
+            <div class="field">
+              <%= label_tag :password %>
+                <div class="ui left icon input">
+                <%= password_field_tag :password %>
+                <i class="lock icon"></i>
+                </div>
+            </div>
+
+            <%= submit_tag 'Login', class: 'ui yellow button'%>
+            
+          <% end %>
+        </div>
+
+
+    </div>
+
+  </div>
+
+</div>
