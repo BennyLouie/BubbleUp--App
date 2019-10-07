@@ -1,40 +1,58 @@
-<% if params[:id].to_i != @current_user.id %>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong style="color: #fff;">
+    Current User
+  </strong>
+</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.full_name %>
-</p>
+<div style="text-align: center;">
 
-<p>
-  <strong>Photo url:</strong>
-  <%= @user.photo_url %>
-</p>
+  <% if params[:id].to_i != @current_user.id %>
+    <p>
+      <img class="is-rounded" width="275" height="275" src=<%= @user.photo_url %> />
+    </p>
 
-<% else%>
+    <p>
+      <h1 style="font-size: 20px;">
+        <strong>
+          Name: <%= @user.full_name %>
+        </strong>
+      </h1>
+    </p>
 
-<p id="notice"><%= notice %></p>
+    <br>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+    <h1>
+      <%= link_to 'Back to User', user_path(@current_user) %>
+    </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.full_name %>
-</p>
+  <% else%>
 
-<p>
-  <strong>Photo url:</strong>
-  <%= @user.photo_url %>
-</p>
+    <p>
+      <img class="is-rounded" width="275" height="275" src=<%= @user.photo_url %> />
+    </p>
+    
+    <p>
+      <h1 style="font-size: 20px;">
+        <strong>
+          Name: <%= @user.full_name %>
+        </strong>
+      </h1>
+    </p>
 
-<%= button_to 'Edit', edit_user_path(@user), method: :get %> 
-<%= button_to 'Delete User', user_path(@user), method: :delete %>
-<%= link_to 'View Boba Shops', shops_path%>
+    <br>
 
-<%= link_to 'My Reviews', shop_reviews_path %>
-<%= link_to 'My Recommendations', recommendations_path %>
+    <%= button_to 'Edit', edit_user_path(@user), method: :get, class: "button-is-primary" %> 
+    <%= button_to 'Delete User', user_path(@user), method: :delete, class: "button-is-primary" %>
 
+    <br>
 
-<% end %> 
+    <h1>
+      <strong>
+        <%= link_to 'View Boba Shops', shops_path%> |
+        <%= link_to 'My Reviews', shop_reviews_path %> |
+        <%= link_to 'My Recommendations', recommendations_path %>
+      </strong>
+    </h1>
+  <% end %> 
+
+</div>

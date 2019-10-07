@@ -1,30 +1,35 @@
 <% if flash[:errors] %>
-  <div id="error_explanation">
-    <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this review from being saved:</h2>
-    <ul>
+  <div id="error_explanation" style="font-weight: bold;">
+    <h2><%= pluralize(flash[:errors].count, "error") %>
+      prohibited this review from being saved:
+    </h2>
+
       <% flash[:errors].each do |message| %>
-        <li><%= message %></li>
+        <p style="color: black;">
+          <%= message %>
+        </p>
       <% end %>
-    </ul>
+
   </div>
 <% end %>
 
 <%= form_for @shop_review do |form| %>
-   <div class="field">
-   <%= form.collection_select :shop_id, Shop.all, :id, :shop_with_location, prompt: true %> 
+   <div class="select is-multiple">
+   <%= form.label "Shop", class: "label"%>
+   <%= form.collection_select :shop_id, Shop.all, :id, :shop_with_location, prompt: true, class: "input"%> 
   </div>
 
   <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <%= form.label :rating, class: "label"%>
+    <%= form.number_field :rating, class: "input"%>
   </div>
 
   <div class="field">
-    <%= form.label :review %>
-    <%= form.text_field :review %>
+    <%= form.label :review, class: "label"%>
+    <%= form.text_field :review, class: "input"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button">
+    <%= form.submit 'Submit Review', class: "button-is-primary" %>
   </div>
 <% end %>

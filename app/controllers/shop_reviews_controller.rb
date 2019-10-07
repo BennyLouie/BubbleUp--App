@@ -23,7 +23,7 @@ class ShopReviewsController < ApplicationController
   def create
     shop_review = ShopReview.create(shop_review_params.merge(user_id: @current_user.id))
     if shop_review.valid?
-      redirect_to shop_path(shop_review)
+      redirect_to shop_review_path(shop_review)
     else
       flash[:errors] = shop_review.errors.full_messages
       redirect_to new_shop_review_path

@@ -9,47 +9,78 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ 
+ *= require bulma/bulma
  *= require_tree .
  *= require_self
  */
- .menu .right {
-    margin-left: auto;
-    background-color: #474747;
-    display: flex;
-  }
 
-  .menu .item {
-    padding: 1em;
-    flex: 0 0 auto;
-    color: #f1f1f1;
-    transition: background-color 0.2s ease, opacity 0.2s ease;
-  }
+.row{
+    background-color: #1F8C92;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+}
 
-  .container {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  @media (max-width: 899px) {
-    .container {
-      width: 700px;
-    }
-  }
-  
-  @media (min-width: 900px) and (max-width: 1199px) {
-    .container {
-      width: 800px;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .container {
-      width: 1100px;
-    }
-  }
+.row-content{
+    background: #4CAF74;
+}
 
-  .menu .logo {
-    font-weight: 500;
-    color: #292929;
-  }
+.button-is-primary{
+    background-color: #3273dc; 
+    padding: 0px; text-align: center; 
+    border: 0px; outline: 0px; 
+    border-color: transparent; 
+    color: #fff; 
+    cursor: pointer; 
+    justify-content: center; 
+    padding-bottom: calc(0.375em - 1px); 
+    padding-left: 0.75em; 
+    padding-right: 0.75em; 
+    padding-top: calc(0.375em - 1px);
+    text-align: center; 
+    white-space: nowrap; 
+    border-width: 1px; 
+    -webkit-appearance: none; 
+    align-items: center; 
+    border: 1px solid transparent; 
+    border-radius: 4px; 
+    box-shadow: none; 
+    display: inline-flex; 
+    font-size: 1rem; 
+    height: 2.25em; 
+    position: relative; 
+    vertical-align: top; 
+    line-height: 1.5; 
+    font-weight: bold;
+}
+
+.button{
+    background-color: #3273dc; 
+    border-color: #3273dc;
+}
+
+.input{
+    font-weight: bold;
+}
+
+.label{
+    font-weight: bold;
+    color: #FFF;
+}
+
+h1{
+    font-size: 15px; 
+    color: #fff; 
+    font-weight: bold;
+}
+
+strong{
+    color: #fff;
+}
+
+p{
+    font-size: 15px; 
+    color: #fff; 
+    font-weight: bold;
+}

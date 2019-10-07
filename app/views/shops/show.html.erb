@@ -1,44 +1,92 @@
-<p id="notice"><%= notice %></p>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong>Current Shop</strong>
+</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @shop.name %>
-</p>
+  <div style="display: flex; justify-content: center">
+    <div class="has-text-justified" style="display: block; margin-left: auto; margin-right: auto; ">
+      <p>
+        <strong>
+          Name: <%= @shop.name %>
+        </strong>
+      </p>
+      <p>
+        <strong>
+          Location: <%= @shop.location %>
+        </strong>
+      </p>
+      <p>
+        <strong>
+          Address: <%= @shop.address %>
+        </strong>
+      </p>
+      <p>
+        <strong>
+          Average Rating: <%= @shop.avg_rating %>
+        </strong>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @shop.location %>
-</p>
+<br>
 
-<p>
-  <strong>Address:</strong>
-  <%= @shop.address %>
-</p>
+<br>
 
-<p>
-  <strong>Average Rating:</strong>
-  <%= @shop.avg_rating %>
-</p>
+  <div class="container" style="display: flex; justify-content: space-around">
+    <table class="table" style="width: 300px;">
+      <thead>
+        <tr class="is-selected">
+          <th class= "row">
+            Tea Menu:
+          </th>
+        </tr>
+      </thead>
 
-<p>
-  <strong>Tea Menu:</strong>
-  <ul>
-  <% @shop.teas.each do |tea| %>
-    <li><%= link_to tea.name, tea_path(tea) %></li>
-  <% end %>
-  </ul>
-</p>
+      <tbody>
+      <% @shop.teas.each do |tea| %>
+        <tr>
+          <td class="row-content">
+            <p>
+              <%= link_to tea.name, tea_path(tea) %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-<p>
-  <strong>Reviews:</strong>
-  <ul>
-  <% @shop.shop_reviews.each do |review| %>
-  <li><%= "Rating: #{review.rating} - #{review.review}" %></li><br>
-  <% end %>
-  </ul>
-</p>
+    <table class="table" style="width: 700px;">
+      <thead>
+        <tr class="is-selected">
+          <th class="row">
+            Reviews:
+          </th>
+        </tr>
+      </thead>
 
+      <tbody>
 
+      <% @shop.shop_reviews.each do |review| %>
 
+        <tr>
+          <td class="row-content">
+            <p>
+              Rating: <%= "#{review.rating} - #{review.review}" %>
+            </p>
+          </td>
+        </tr>
 
-<%= link_to 'Back', shops_path %> 
+      <% end %>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+<br>
+
+<div class="container" style="display: flex; justify-content: center">
+  <h1>
+    <%= link_to 'Back', shops_path %>
+  </h1>
+</div>

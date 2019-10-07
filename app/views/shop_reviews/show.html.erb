@@ -1,24 +1,34 @@
-<p id="notice"><%= notice %></p>
+<h1 class= "label" style="background-color: #011F2E; color: #fff;">
+  <strong>
+    Shop Review
+  </strong>
+</h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @shop_review.user_id %>
-</p>
+<div style="display: flex; justify-content: center">
+  <div class="has-text-justified" style="display: block; margin-left: auto; margin-right: auto; ">
+    <p>
+      <strong>
+        Shop: <%= Shop.find(@shop_review.shop_id).name %>
+      </strong>
+    </p>
 
-<p>
-  <strong>Shop:</strong>
-  <%= @shop_review.shop_id %>
-</p>
+    <p>
+      <strong>
+        Rating: <%= @shop_review.rating %>
+      </strong>
+    </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @shop_review.rating %>
-</p>
+    <p>
+      <strong>
+        Review: <%= @shop_review.review %>
+      </strong>
+    </p>
 
-<p>
-  <strong>Review:</strong>
-  <%= @shop_review.review %>
-</p>
+    <br>
 
-<%= link_to 'Edit', edit_shop_review_path(@shop_review) %> |
-<%= link_to 'Back', shop_reviews_path %>
+    <h1>
+      <%= link_to 'Edit', edit_shop_review_path(@shop_review) %> |
+      <%= link_to 'Back', shop_reviews_path %>
+    </h1>
+  </div>
+</div>

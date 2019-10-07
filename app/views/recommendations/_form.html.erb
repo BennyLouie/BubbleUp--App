@@ -1,27 +1,30 @@
 <% if flash[:errors] %>
-  <div id="error_explanation">
-    <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this user from being saved:</h2>
-    <ul>
+  <div id="error_explanation" style="font-weight: bold;">
+    <h2><%= pluralize(flash[:errors].count, "error") %>
+      prohibited this recommendation from being saved:
+    </h2>
+      
       <% flash[:errors].each do |message| %>
-        <li><%= message %></li>
+        <p style="color: black;">
+          <%= message %>
+        </p>
       <% end %>
-    </ul>
+
   </div>
 <% end %>
 
 <%= form_for @recommendation do |form| %>
-
-
-   <div class="field">
-   <%= form.collection_select :tea_id, Tea.all, :id, :shop_and_location, prompt: true %> 
+   <div class="select is-multiple">
+   <%= form.label "Tea", class: "label"%>
+   <%= form.collection_select :tea_id, Tea.all, :id, :shop_and_location, prompt: true, class: "input"%> 
   </div>
 
   <div class="field">
-    <%= form.label :comments %>
-    <%= form.text_field :comments %>
+    <%= form.label :comments, class: "label"%>
+    <%= form.text_field :comments, class: "input"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button">
+    <%= form.submit "Submit Recommendation", class: "button-is-primary"%>
   </div>
 <% end %>

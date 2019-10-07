@@ -1,34 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html style="background: #172f43;">
   <head>
     <title>BubbleUp! App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <% # javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   
-  <body>
-    <header class="menu">
-      <div class="container">
-        <span class="logo">
-        Bubble Up!
-        </span>
-        <nav class="right">
-          <span class="item">
-            <% if logged_in? %>
-              Welcome, <%= @current_user.full_name %>
-              <%= button_to "Logout", "/logout", method: :delete %>
-            <% else %>
-              <%= link_to "Sign Up", new_user_path, class: "item" %>
-              <%= link_to "Login", login_path, class: "item" %>
-            <% end %>
-          </span>
-        </nav>
+  <body style="background: #172f43;">
+  
+    <nav class="navbar" role="navigation" aria-label="main navigation", style="background-color: #0FB2FE;
+    min-height: 3.25rem;
+    position: relative;
+    z-index: 30;">
+      <div class="navbar-brand">
+        <img src="https://cdn2.iconfinder.com/data/icons/bubble-milk-tea/500/bubble-tea-drink_9-512.png" width="112" height="28">
       </div>
-  </header>
+
+    <% if logged_in? %>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+                <h1 style="font-size: 25px">
+                <strong>
+                  Welcome, <%= @current_user.full_name %>
+                </strong>
+                </h1>
+              <a class="button-is-primary">
+                <strong>
+                  <%= button_to "Logout", "/logout", method: :delete, class:"button-is-primary" %>
+                </strong>
+              </a>
+          </div>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+              <a class="button is-link" href=<%= new_user_path %>>
+                <strong>
+                  Sign Up
+                </strong>
+              </a>
+              <a class="button is-light" href=<%= login_path %>>
+                Login
+              </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  
+  </nav>
+
     <%= yield %>
 
   </body>
