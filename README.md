@@ -3,6 +3,8 @@ BUBBLE UP!
 
 https://powerful-plains-47280.herokuapp.com/
 
+## Blog: https://medium.com/@bennylouie/summarizing-my-mod-2-project-bubble-up-cad41d854ae5
+
 A simple web application to that allows users to review bubble tea shops and add bubble teas to their list of recommendations. 
 
 The app is built using Rails [6.0], HTML, CSS (through Bulma as well as a custom stylesheet), and a Postgres SQL database.
