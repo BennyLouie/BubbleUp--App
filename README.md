@@ -23,7 +23,6 @@ This app was developed as Flatiron School's mod 2 Project.
 3) `bundle install` the gems required to load this app.
 
 =======
----
 
 HOW TO GET STARTED
 ========================
