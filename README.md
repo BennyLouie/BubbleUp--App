@@ -1,6 +1,7 @@
 BUBBLE UP! 
 ========================
 
+(The name of the deployed app doesn't match the name of the app itself 😅)
 https://powerful-plains-47280.herokuapp.com/
 
 ## Blog: https://medium.com/@bennylouie/summarizing-my-mod-2-project-bubble-up-cad41d854ae5
